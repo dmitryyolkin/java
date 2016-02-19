@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
+         version="3.1">
+
+    <display-name>rest-jersey</display-name>
+    <welcome-file-list>
+        <welcome-file>index.html</welcome-file>
+    </welcome-file-list>
+    <servlet>
+        <servlet-name>Jersey Web Service</servlet-name>
+        <servlet-class>com.sun.jersey.spi.container.servlet.ServletContainer</servlet-class>
+        <!-- Register resources and packages under rest-jersey -->
+        <init-param>
+            <!--
+                The parameter jersey.config.server.provider.packages defines in which package Jersey will look for the web service classes.
+                This property must point to your resources classes.
+
+                This param is Jersey specific
+                If we need to specify a few packages then they can be splitted with ,
+                See good article http://www.connect2java.com/webservices/jax-rs-multiple-resource-packages-configuration/
+            -->
+            <param-name>jersey.config.server.provider.packages</param-name>
+            <param-value>hello,todo</param-value>
+        </init-param>
+
+        <init-param>
+            <!-- enable POJO mapping for JSON -->
+            <param-name>com.sun.jersey.api.json.POJOMappingFeature</param-name>
+            <param-value>true</param-value>
+        </init-param>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Jersey Web Service</servlet-name>
+        <!--
+            if I use this pattern then Servlet will handle every request
+            and default todos.html won't be shown
+            <url-pattern>/*</url-pattern>
+        -->
+        <url-pattern>/servlets/*</url-pattern>
+    </servlet-mapping>
+</web-app>

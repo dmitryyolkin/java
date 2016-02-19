@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Create new Todo</title>
+</head>
+<body>
+    <!-- it's not clear why path is specified this way -->
+    <form action="./servlets/todos" method="POST">
+        <label for="id">ID</label>
+        <input name="id"/>
+        <br/>
+        <label for="summary">Summary</label>
+        <input name="summary"/>
+        <br/>
+        Description:e
+        <Textarea name="description" COLS="40" rows="6"></Textarea>
+        <br/>
+        <input type="submit" value="Submit"/>
+    </form>
+</body>
+</html>

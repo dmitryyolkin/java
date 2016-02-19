@@ -1,0 +1,29 @@
+.linkBtn:hover{
+    color: #0000d0;
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+/*
+  it looks like style below doesn't work
+*/
+.linkBtn:visited{
+    color: #900060;
+    text-decoration: underline;
+}
+
+.invisible {
+    display: none;
+}
+
+.visible {
+    display: block;
+}
+
+
+.non-empty-todo{
+    color: green;
+}
+.empty-todo{
+    color: red;
+}

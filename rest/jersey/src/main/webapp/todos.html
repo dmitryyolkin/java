@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Todos</title>
+
+    <link rel="stylesheet" type="text/css" href="./css/default.css"/>
+    <script src="./scripts/lib/jquery-1.12.0.js"></script>
+    <script src="./scripts/todoService.js"></script>
+</head>
+<body>
+    <p>It's Todo service that allows:</p>
+    <ol>
+        <li>
+            <div id="showTodos">
+                <span id="showTodosBtn" class="linkBtn" onclick="showAllTodos()">Show all todo</span>
+                <span id="allTodos"></span>
+            </div>
+        </li>
+        <li>
+            <div id="createTodo">
+                <span id="createTodoBtn" class="linkBtn" onclick="makeCreateFormVisible()">Create todo</span>
+                <form id="createTodoForm" class="invisible" action="" method="POST">
+                    <label for="id">ID</label>
+                    <input name="id"/>
+                    <br/>
+                    <label for="summary">Summary</label>
+                    <input name="summary"/>
+                    <br/>
+                    Description:
+                    <Textarea name="description" COLS="40" rows="6"></Textarea>
+                    <br/>
+                    <!--if you want to reload a form - please see create_todo.htl form and TodosResource.createTodo->APPLICATION_FORM_URLENCODED -->
+                    <input type="button" value="Submit" onclick="createTodo()">
+                </form>
+
+            </div>
+        </li>
+    </ol>
+</body>
+</html>
