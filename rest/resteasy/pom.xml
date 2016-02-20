@@ -10,6 +10,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>resteasy</artifactId>
+    <packaging>war</packaging>
 
     <build>
         <sourceDirectory>src/main/java</sourceDirectory>
@@ -25,6 +26,12 @@
                 <filtering>true</filtering>
             </resource>
         </resources>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-war-plugin</artifactId>
+            </plugin>
+        </plugins>
     </build>
 
     <dependencies>
