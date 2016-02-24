@@ -47,6 +47,11 @@
         <servlet-class>
             org.jboss.resteasy.plugins.server.servlet.HttpServletDispatcher
         </servlet-class>
+        <!-- This param should be uncommented in we want to register web-services with help of Application instead of ResteasyBootstrap -->
+        <!--<init-param>-->
+            <!--<param-name>javax.ws.rs.Application</param-name>-->
+            <!--<param-value>msg.MessageApplication</param-value>-->
+        <!--</init-param>-->
     </servlet>
 
     <servlet-mapping>
