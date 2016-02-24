@@ -5,17 +5,31 @@
          version="3.1">
 
     <display-name>rest-resteasy</display-name>
+    <welcome-file-list>
+        <welcome-file>index.html</welcome-file>
+    </welcome-file-list>
 
-    <!-- Auto scan REST service -->
+    <!--
+        =======================================================================
+        ==================Resteasy specific====================================
+        =======================================================================
+    -->
+    <!--
+        Auto scan REST service.
+        Remember to set “resteasy.scan” to true, so that RESTEasy will find and register your REST service automatically.
+    -->
     <context-param>
         <param-name>resteasy.scan</param-name>
         <param-value>true</param-value>
     </context-param>
 
-    <!-- this need same with resteasy servlet url-pattern -->
+    <!--
+        You need to set the “resteasy.servlet.mapping.prefix” if your servlet-mapping for the resteasy servlet has a url-pattern other than “/*“.
+        this need same with resteasy servlet url-pattern
+     -->
     <context-param>
         <param-name>resteasy.servlet.mapping.prefix</param-name>
-        <param-value>/rest-resteasy</param-value>
+        <param-value>/servlets</param-value>
     </context-param>
 
     <listener>
@@ -23,6 +37,10 @@
             org.jboss.resteasy.plugins.server.servlet.ResteasyBootstrap
         </listener-class>
     </listener>
+    <!--
+        =======================================================================
+        =======================================================================
+    -->
 
     <servlet>
         <servlet-name>Resteasy-servlet</servlet-name>
@@ -33,6 +51,6 @@
 
     <servlet-mapping>
         <servlet-name>Resteasy-servlet</servlet-name>
-        <url-pattern>/rest-resteasy/*</url-pattern>
+        <url-pattern>/servlets/*</url-pattern>
     </servlet-mapping>
 </web-app>
