@@ -8,6 +8,7 @@
     <modules>
         <module>soap</module>
         <module>rest</module>
+        <module>rabbitmq</module>
     </modules>
     <packaging>pom</packaging>
 
