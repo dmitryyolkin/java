@@ -1,0 +1,17 @@
+# Output #
+###################
+target/
+
+# Logs and databases #
+######################
+*.log
+
+# IntelliJ IDEA files #
+#######################
+
+/*.ipr
+/*.iws
+/*.ids
+.idea
+*.iml
+atlassian-ide-plugin.xml
