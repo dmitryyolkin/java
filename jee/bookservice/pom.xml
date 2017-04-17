@@ -11,19 +11,18 @@
     <dependencies>
         <dependency>
             <!--
-                It's not the last version - now there is 3.0.x
                 https://mvnrepository.com/artifact/org.jboss.weld.se/weld-se-core
 
                 Weld is CDI (Context Dependency Injection) library from JBoss.
                 It's similar with Guice and Spring but in comparison with it Weld has
                     Alternatives, Events (maybe it's outdated now).
 
-                    See http://stackoverflow.com/questions/2652126/google-guice-vs-jsr-299-cdi-weld
-                    Weld is used in JEE Tutorial
+                See http://stackoverflow.com/questions/2652126/google-guice-vs-jsr-299-cdi-weld
+                Weld is used in JEE Tutorial
              -->
             <groupId>org.jboss.weld.se</groupId>
             <artifactId>weld-se-core</artifactId>
-            <version>2.0.0.Final</version>
+            <version>3.0.0.CR1</version>
         </dependency>
         <dependency>
             <groupId>junit</groupId>
