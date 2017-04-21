@@ -52,11 +52,11 @@
                         <goals>
                             <goal>java</goal>
                         </goals>
-                        <configuration>
-                            <mainClass>com.yolkin.bookservice.Main</mainClass>
-                        </configuration>
                     </execution>
                 </executions>
+                <configuration>
+                    <mainClass>com.yolkin.bookservice.Main</mainClass>
+                </configuration>
             </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>

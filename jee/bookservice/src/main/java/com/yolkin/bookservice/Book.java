@@ -34,4 +34,14 @@ public class Book {
     public String getNumber() {
         return number;
     }
+
+    @Override
+    public String toString() {
+        return "Book{" +
+                "title='" + title + '\'' +
+                ", price=" + price +
+                ", description='" + description + '\'' +
+                ", number='" + number + '\'' +
+                '}';
+    }
 }
