@@ -1,7 +1,7 @@
 /*
  * Copyright (c) 2008-2017 Maxifier Ltd. All Rights Reserved.
  */
-package com.yolkin.bookservice;
+package com.yolkin.bookservice.annotations.interceptors;
 
 import javax.enterprise.inject.Produces;
 import javax.enterprise.inject.spi.InjectionPoint;

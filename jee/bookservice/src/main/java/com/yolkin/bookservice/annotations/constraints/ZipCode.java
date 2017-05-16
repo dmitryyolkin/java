@@ -1,7 +1,7 @@
 /*
  * Copyright (c) 2008-2017 Maxifier Ltd. All Rights Reserved.
  */
-package com.yolkin.bookservice.annotations.validators;
+package com.yolkin.bookservice.annotations.constraints;
 
 /**
  * @author dmitry.yolkin (dmitry.yolkin@maxifier.com) (2017-05-16 07:39)

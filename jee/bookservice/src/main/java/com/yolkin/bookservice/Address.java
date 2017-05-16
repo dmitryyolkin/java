@@ -3,7 +3,7 @@
  */
 package com.yolkin.bookservice;
 
-import com.yolkin.bookservice.annotations.validators.ZipCode;
+import com.yolkin.bookservice.annotations.constraints.ZipCode;
 import javax.validation.constraints.NotNull;
 
 /**

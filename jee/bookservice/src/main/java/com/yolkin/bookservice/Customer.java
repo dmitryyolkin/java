@@ -3,7 +3,7 @@
  */
 package com.yolkin.bookservice;
 
-import com.yolkin.bookservice.annotations.validators.Email;
+import com.yolkin.bookservice.annotations.constraints.Email;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Past;
 import javax.validation.constraints.Size;

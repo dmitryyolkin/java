@@ -1,7 +1,7 @@
 /*
  * Copyright (c) 2008-2017 Maxifier Ltd. All Rights Reserved.
  */
-package com.yolkin.bookservice.annotations;
+package com.yolkin.bookservice.annotations.qualifiers;
 
 import javax.inject.Qualifier;
 import java.lang.annotation.ElementType;

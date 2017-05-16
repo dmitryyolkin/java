@@ -3,8 +3,8 @@
  */
 package com.yolkin.bookservice;
 
-import com.yolkin.bookservice.annotations.Loggable;
-import com.yolkin.bookservice.annotations.ThirteenDigits;
+import com.yolkin.bookservice.annotations.interceptors.Loggable;
+import com.yolkin.bookservice.annotations.qualifiers.ThirteenDigits;
 import com.yolkin.bookservice.generators.NumberGenerator;
 import javax.inject.Inject;
 

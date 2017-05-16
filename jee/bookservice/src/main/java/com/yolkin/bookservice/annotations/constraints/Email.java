@@ -1,7 +1,7 @@
 /*
  * Copyright (c) 2008-2017 Maxifier Ltd. All Rights Reserved.
  */
-package com.yolkin.bookservice.annotations.validators;
+package com.yolkin.bookservice.annotations.constraints;
 
 import javax.validation.Constraint;
 import javax.validation.Payload;
@@ -32,7 +32,7 @@ import java.lang.annotation.Target;
 public @interface Email {
     //This key is used in 'resources/META-INF/ValidationMessages.properties' to specify
     //user-friendly message in case of error
-    String message() default "{com.yolkin.bookservice.annotations.validators.Email.message}";
+    String message() default "{com.yolkin.bookservice.annotations.constraints.Email.message}";
 
     //groups indicates for what cases this annotation should be checked
     //a certain case is specified with help of certain classes
