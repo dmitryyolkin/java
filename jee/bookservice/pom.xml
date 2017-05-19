@@ -10,6 +10,11 @@
 
     <dependencies>
         <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-validator</artifactId>
+            <version>5.4.0.Final</version>
+        </dependency>
+        <dependency>
             <!--
                 https://mvnrepository.com/artifact/org.jboss.weld.se/weld-se-core
 
@@ -29,6 +34,14 @@
             <artifactId>junit</artifactId>
             <version>4.12</version>
             <scope>test</scope>
+        </dependency>
+        <dependency>
+            <!--
+                It's needed for Validation.buildDefaultValidatorFactory() - see CustomerIT
+            -->
+            <groupId>org.glassfish</groupId>
+            <artifactId>javax.el</artifactId>
+            <version>3.0.1-b08</version>
         </dependency>
     </dependencies>
 

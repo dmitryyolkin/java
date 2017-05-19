@@ -1,9 +1,8 @@
 /*
  * Copyright (c) 2008-2017 Maxifier Ltd. All Rights Reserved.
  */
-package com.yolkin.bookservice;
+package com.yolkin.bookservice.annotations.interceptors;
 
-import com.yolkin.bookservice.annotations.Loggable;
 import javax.inject.Inject;
 import javax.interceptor.AroundInvoke;
 import javax.interceptor.Interceptor;

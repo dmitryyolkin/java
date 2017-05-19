@@ -3,8 +3,8 @@
  */
 package com.yolkin.bookservice.generators;
 
-import com.yolkin.bookservice.annotations.EightDigits;
-import com.yolkin.bookservice.annotations.Loggable;
+import com.yolkin.bookservice.annotations.qualifiers.EightDigits;
+import com.yolkin.bookservice.annotations.interceptors.Loggable;
 import javax.inject.Inject;
 import java.util.Random;
 import java.util.logging.Logger;
