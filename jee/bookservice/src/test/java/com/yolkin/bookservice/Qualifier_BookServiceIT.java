@@ -12,7 +12,7 @@ import org.junit.Test;
 /**
  * @author dmitry.yolkin (dmitry.yolkin@maxifier.com) (2017-04-17 07:21)
  */
-public class BookServiceIT {
+public class Qualifier_BookServiceIT {
 
     @Test
     public void test(){

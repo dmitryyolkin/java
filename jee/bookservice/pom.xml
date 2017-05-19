@@ -35,6 +35,14 @@
             <version>4.12</version>
             <scope>test</scope>
         </dependency>
+        <dependency>
+            <!--
+                It's needed for Validation.buildDefaultValidatorFactory() - see CustomerIT
+            -->
+            <groupId>org.glassfish</groupId>
+            <artifactId>javax.el</artifactId>
+            <version>3.0.1-b08</version>
+        </dependency>
     </dependencies>
 
     <build>
