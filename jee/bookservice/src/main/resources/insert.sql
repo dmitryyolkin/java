@@ -1,0 +1,3 @@
+INSERT INTO BOOK(ID, TITLE, DESCRIPTION, PRICE, NUMBER) values (1000, 'Beginning Java EE 6', 'Best Java EE book ever', 49, '1234-5678')
+INSERT INTO BOOK(ID, TITLE, DESCRIPTION, PRICE, NUMBER) values (1001, 'Beginning Java EE 7', 'No, this is the best ', 53, '5678-9012')
+INSERT INTO BOOK(ID, TITLE, DESCRIPTION, PRICE, NUMBER) values (1010, 'The Lord of the Rings', 'One ring to rule them all', 23, '9012-3456')

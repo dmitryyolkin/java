@@ -8,12 +8,11 @@
     <artifactId>bookservice</artifactId>
     <version>1.0-SNAPSHOT</version>
 
+    <properties>
+        <derby.version>10.13.1.1</derby.version>
+    </properties>
+
     <dependencies>
-        <dependency>
-            <groupId>org.hibernate</groupId>
-            <artifactId>hibernate-validator</artifactId>
-            <version>5.4.0.Final</version>
-        </dependency>
         <dependency>
             <!--
                 https://mvnrepository.com/artifact/org.jboss.weld.se/weld-se-core
@@ -29,12 +28,49 @@
             <artifactId>weld-se-core</artifactId>
             <version>3.0.0.CR1</version>
         </dependency>
+
+        <!-- Constraints validation -->
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-validator</artifactId>
+            <version>5.4.0.Final</version>
+        </dependency>
+
+        <!--
+            JPA Java Persistence API (http://www.eclipse.org/eclipselink/)
+            EclipseLink is similar with hibernate.
+                Hibernate is more matter with better documentation and community
+                EclipseLink is more compliant with JPA 2.0 standards
+        -->
+        <dependency>
+            <groupId>org.eclipse.persistence</groupId>
+            <artifactId>org.eclipse.persistence.jpa</artifactId>
+            <version>2.6.4</version>
+        </dependency>
+
+        <!--
+            Derby (https://db.apache.org/derby/) is
+            in-memory DB but according to tests H2 is better
+            -->
+        <dependency>
+            <groupId>org.apache.derby</groupId>
+            <artifactId>derbyclient</artifactId>
+            <version>${derby.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.derby</groupId>
+            <artifactId>derby</artifactId>
+            <version>${derby.version}</version>
+            <scope>test</scope>
+        </dependency>
+
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
             <version>4.12</version>
             <scope>test</scope>
         </dependency>
+
         <dependency>
             <!--
                 It's needed for Validation.buildDefaultValidatorFactory() - see CustomerIT
