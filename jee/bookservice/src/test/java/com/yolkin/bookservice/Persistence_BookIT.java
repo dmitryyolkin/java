@@ -11,7 +11,11 @@ import org.junit.Test;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
+import javax.persistence.criteria.CriteriaBuilder;
+import javax.persistence.criteria.CriteriaQuery;
+import javax.persistence.criteria.Root;
 import javax.validation.ConstraintViolationException;
+import java.util.List;
 
 /**
  * @author dmitry.yolkin (dmitry.yolkin@maxifier.com) (2017-06-05 08:23)
@@ -51,5 +55,18 @@ public class Persistence_BookIT {
                 "1-84023-742-2"
         );
         entityManager.persist(book);
+    }
+
+    @Test
+    public void testCriteriaAPI_findBooksWithPrice(){
+        //see test scenario details in insert.sql
+        CriteriaBuilder builder = entityManager.getCriteriaBuilder();
+
+        CriteriaQuery<Book> criteriaQuery = builder.createQuery(Book.class);
+        Root<Book> from = criteriaQuery.from(Book.class);
+        criteriaQuery.select(from).where(builder.greaterThan(from.get("price").as(Double.class), 40.0));
+
+        List<Book> books = entityManager.createQuery(criteriaQuery).getResultList();
+        assertEquals(books.size(), 2);
     }
 }
