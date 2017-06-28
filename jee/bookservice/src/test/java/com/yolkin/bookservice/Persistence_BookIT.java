@@ -4,10 +4,13 @@
 package com.yolkin.bookservice;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
 
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
+import javax.persistence.Cache;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
@@ -43,6 +46,16 @@ public class Persistence_BookIT {
     public void testShouldFindBookById() {
         Book book = entityManager.find(Book.class, 1001L);
         assertEquals("Beginning Java EE 7", book.getTitle());
+
+        //check attached/detached entity state
+        assertTrue(entityManager.contains(book));
+        entityManager.detach(book);
+        assertFalse(entityManager.contains(book));
+
+        Cache cache = entityManagerFactory.getCache();
+        assertTrue(cache.contains(Book.class, book.getId()));
+        cache.evict(Book.class, book.getId());
+        assertFalse(cache.contains(Book.class, book.getId()));
     }
 
     @Test(expected = ConstraintViolationException.class)
