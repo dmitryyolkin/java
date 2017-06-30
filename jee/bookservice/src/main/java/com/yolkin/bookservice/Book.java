@@ -3,7 +3,10 @@
  */
 package com.yolkin.bookservice;
 
+import com.yolkin.bookservice.annotations.listeners.BookListener;
+import com.yolkin.bookservice.annotations.listeners.CommonDebugListener;
 import javax.persistence.Entity;
+import javax.persistence.EntityListeners;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.NamedQueries;
@@ -15,6 +18,7 @@ import javax.validation.constraints.Size;
  * @author dmitry.yolkin (dmitry.yolkin@maxifier.com) (2017-04-17 07:22)
  */
 @Entity
+@EntityListeners({BookListener.class, CommonDebugListener.class})
 @NamedQueries({
         //JPQL - Java Persistence Query Language
         @NamedQuery(name = "findAllBooks", query = "SELECT b from Book b"),
