@@ -16,4 +16,8 @@ import javax.ejb.Startup;
 @DependsOn("SingletonEJB1")
 @Startup
 public class SingletonEJB2 {
+
+    public void init(){
+    };
+
 }

@@ -11,4 +11,8 @@ import javax.ejb.Singleton;
  */
 @Singleton
 public class SingletonEJB1 {
+
+    public void init(){
+    };
+
 }
