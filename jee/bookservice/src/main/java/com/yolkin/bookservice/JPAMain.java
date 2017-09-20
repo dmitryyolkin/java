@@ -10,6 +10,12 @@ import javax.persistence.Persistence;
 import java.util.logging.Logger;
 
 /**
+ * Before run this class look at your persistence.xml and make sure what settings are set for Persistence unit by the class.
+ * At the moment we use Derby (embedded version for test and remote for prod)
+ *
+ * For this class prod version is used and before you will be able to use you have to install Derby server and configure it
+ * See details here http://db.apache.org/derby/papers/DerbyTut/ns_intro.html -> Derby Network Server
+ *
  * @author dmitry.yolkin (dmitry.yolkin@maxifier.com) (2017-06-06 07:53)
  */
 public class JPAMain {

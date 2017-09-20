@@ -19,6 +19,19 @@ http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd"
             <property name="javax.persistence.schema-generation.scripts.create-target" value="bookserviceCreate.ddl"/>
             <property name="javax.persistence.schema-generation.scripts.drop-target" value="bookserviceDrop.ddl"/>
 
+            <!--
+                Please see we use remote version (not embedded) what means we have to install Derby DB server
+                and configure it.
+
+                Please see details
+                    * installation - http://db.apache.org/derby/papers/DerbyTut/install_software.html
+                    * Derby Network Server - http://db.apache.org/derby/papers/DerbyTut/ns_intro.html
+
+                    Short:
+                    cd $DERBY_INSTALL/lib
+                    java -jar derbyrun.jar server start
+            -->
+
             <property name="javax.persistence.jdbc.driver" value="org.apache.derby.jdbc.ClientDriver"/>
             <property name="javax.persistence.jdbc.url" value="jdbc:derby://localhost:1527/bookservice;create=true"/>
             <property name="javax.persistence.jdbc.user" value="APP"/>
