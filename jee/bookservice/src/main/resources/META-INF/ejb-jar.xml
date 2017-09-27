@@ -5,7 +5,28 @@ http://xmlns.jcp.org/xml/ns/javaee/ejb-jar_3_2.xsd"
          version="3.2">
     <enterprise-beans>
         <session>
+            <ejb-name>SingletonEJB1</ejb-name>
+            <local-bean/>
+            <ejb-class>com.yolkin.bookservice.ejb.SingletonEJB1</ejb-class>
+            <session-type>Stateless</session-type>
+            <transaction-type>Container</transaction-type>
+        </session>
+        <session>
+            <ejb-name>SingletonEJB2</ejb-name>
+            <local-bean/>
+            <ejb-class>com.yolkin.bookservice.ejb.SingletonEJB2</ejb-class>
+            <session-type>Stateless</session-type>
+            <transaction-type>Container</transaction-type>
+        </session>
+        <session>
             <ejb-name>CurrencyConverter</ejb-name>
+            <remote>com.yolkin.bookservice.ejb.CurrencyConverterRemote</remote>
+            <local>com.yolkin.bookservice.ejb.CurrencyConverterLocal</local>
+            <local-bean/>
+
+            <ejb-class>com.yolkin.bookservice.ejb.CurrencyConverter</ejb-class>
+            <session-type>Stateless</session-type>
+            <transaction-type>Container</transaction-type>
             <env-entry>
                 <env-entry-name>dollar2RubMultiplier</env-entry-name>
                 <env-entry-type>java.lang.Double</env-entry-type>

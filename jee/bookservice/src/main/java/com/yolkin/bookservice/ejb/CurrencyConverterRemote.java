@@ -13,6 +13,6 @@ import javax.ejb.Remote;
 @Remote
 public interface CurrencyConverterRemote {
 
-    Double dollarToRub(double d);
+    Double dollarToRub(Double d);
 
 }

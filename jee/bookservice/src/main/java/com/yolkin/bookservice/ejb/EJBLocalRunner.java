@@ -16,13 +16,18 @@ import java.util.Map;
 public class EJBLocalRunner {
 
     public static void main(String[] args) throws NamingException {
+        //todo it doesn't work (CurrencyConverter.dollarToRub(..) can not be found)
+        //but what is interesting if it work if I copy CurrencyConverter and its registration into ejb-jar.xml
+        //to initial author's environment
+        //https://github.com/agoncal/agoncal-book-javaee7/tree/master/chapter07/chapter07-samples/src/main
+
         Map<String, Object> props = new HashMap<>();
         props.put(EJBContainer.MODULES, new File("target/classes"));
 
         try (EJBContainer ejbContainer = EJBContainer.createEJBContainer(props)) {
             Context cx = ejbContainer.getContext();
             CurrencyConverter currencyConverter = (CurrencyConverter) cx.lookup("java:global/classes/CurrencyConverter!com.yolkin.bookservice.ejb.CurrencyConverter");
-            System.out.println(currencyConverter.dollarToRub(1));
+            System.out.println("Conversion result: " + currencyConverter.dollarToRub(1.0));
         }
     }
 

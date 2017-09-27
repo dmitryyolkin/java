@@ -19,7 +19,7 @@ public class CurrencyConverter implements
     private Double dollar2RubMultiplier;
 
     @Override
-    public Double dollarToRub(double d) {
+    public Double dollarToRub(Double d) {
         return dollar2RubMultiplier * d;
     }
 

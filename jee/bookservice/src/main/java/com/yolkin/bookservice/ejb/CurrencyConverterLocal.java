@@ -13,6 +13,6 @@ import javax.ejb.Local;
 @Local
 public interface CurrencyConverterLocal {
 
-    Double dollarToRub(double d);
+    Double dollarToRub(Double d);
 
 }
