@@ -38,6 +38,14 @@ http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd"
             <property name="javax.persistence.jdbc.password" value="APP"/>
             <property name="javax.persistence.sql-load-script-source" value="insert.sql"/>
             <property name="eclipselink.logging.level" value="INFO"/>
+
+            <!--
+                Prop below is needed because we use the same Book enitity in both persistent-units
+                and eclipseLink tries to generate Book_ class for both of them.
+
+                In this case eclipseLink will generate Book_prod and Book_test
+             -->
+            <property name="eclipselink.canonicalmodel.subpackage" value="prod"/>
         </properties>
     </persistence-unit>
 
@@ -72,6 +80,7 @@ http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd"
             <property name="javax.persistence.jdbc.url" value="jdbc:derby:memory:bookservice;create=true"/>
             <property name="javax.persistence.sql-load-script-source" value="insert.sql"/>
             <property name="eclipselink.logging.level" value="INFO"/>
+            <property name="eclipselink.canonicalmodel.subpackage" value="test"/>
         </properties>
     </persistence-unit>
 </persistence>
