@@ -4,6 +4,7 @@
 package com.yolkin.bookservice.ejb;
 
 import javax.annotation.Resource;
+import javax.ejb.AsyncResult;
 import javax.ejb.Asynchronous;
 import javax.ejb.SessionContext;
 import java.util.concurrent.ExecutorService;
@@ -19,6 +20,11 @@ public class AsyncEJB {
     private SessionContext sessionContext;
 
     public Future<Integer> get(int iterations){
+        if (sessionContext.wasCancelCalled()) {
+            //result was cancelled by user
+            return new AsyncResult<>(-1);
+        }
+
         ExecutorService executorService = Executors.newSingleThreadExecutor();
         return executorService.submit(() -> {
             int sum = 0;
