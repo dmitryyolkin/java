@@ -7,12 +7,13 @@ import com.yolkin.bookservice.annotations.constraints.Email;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Past;
 import javax.validation.constraints.Size;
+import java.io.Serializable;
 import java.util.Date;
 
 /**
  * @author dmitry.yolkin (dmitry.yolkin@maxifier.com) (2017-05-16 07:34)
  */
-public class Customer {
+public class Customer implements Serializable{
     @NotNull
     @Size(min = 2)
     private String firstName;
