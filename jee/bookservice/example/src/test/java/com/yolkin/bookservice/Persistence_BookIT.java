@@ -4,10 +4,9 @@
 package com.yolkin.bookservice;
 
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertTrue;
 
 import org.junit.After;
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import javax.persistence.Cache;
@@ -48,14 +47,14 @@ public class Persistence_BookIT {
         assertEquals("Beginning Java EE 7", book.getTitle());
 
         //check attached/detached entity state
-        assertTrue(entityManager.contains(book));
+        Assert.assertTrue(entityManager.contains(book));
         entityManager.detach(book);
-        assertFalse(entityManager.contains(book));
+        Assert.assertFalse(entityManager.contains(book));
 
         Cache cache = entityManagerFactory.getCache();
-        assertTrue(cache.contains(Book.class, book.getId()));
+        Assert.assertTrue(cache.contains(Book.class, book.getId()));
         cache.evict(Book.class, book.getId());
-        assertFalse(cache.contains(Book.class, book.getId()));
+        Assert.assertFalse(cache.contains(Book.class, book.getId()));
     }
 
     @Test(expected = ConstraintViolationException.class)
@@ -80,6 +79,6 @@ public class Persistence_BookIT {
         criteriaQuery.select(from).where(builder.greaterThan(from.get("price").as(Double.class), 40.0));
 
         List<Book> books = entityManager.createQuery(criteriaQuery).getResultList();
-        assertEquals(books.size(), 2);
+        Assert.assertEquals(books.size(), 2);
     }
 }

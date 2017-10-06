@@ -6,7 +6,12 @@
 
     <groupId>com.yolkin</groupId>
     <artifactId>bookservice</artifactId>
+    <packaging>pom</packaging>
     <version>1.0-SNAPSHOT</version>
+    <modules>
+        <module>example</module>
+        <module>app</module>
+    </modules>
 
     <properties>
         <!-- Project -->
@@ -14,128 +19,4 @@
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
     </properties>
 
-    <dependencies>
-        <dependency>
-            <!--
-                https://mvnrepository.com/artifact/org.jboss.weld.se/weld-se-core
-
-                Weld is CDI (Context Dependency Injection) library from JBoss.
-                It's similar with Guice and Spring but in comparison with it Weld has
-                    Alternatives, Events (maybe it's outdated now).
-
-                See http://stackoverflow.com/questions/2652126/google-guice-vs-jsr-299-cdi-weld
-                Weld is used in JEE Tutorial
-             -->
-            <groupId>org.jboss.weld.se</groupId>
-            <artifactId>weld-se-core</artifactId>
-            <version>3.0.0.CR1</version>
-        </dependency>
-
-        <!-- Constraints validation -->
-        <dependency>
-            <groupId>org.hibernate</groupId>
-            <artifactId>hibernate-validator</artifactId>
-            <version>5.4.0.Final</version>
-        </dependency>
-
-        <!--
-            JPA Java Persistence API (http://www.eclipse.org/eclipselink/)
-            EclipseLink is similar with hibernate.
-                Hibernate is more matter with better documentation and community
-                EclipseLink is more compliant with JPA 2.0 standards
-        -->
-        <dependency>
-            <groupId>org.eclipse.persistence</groupId>
-            <artifactId>org.eclipse.persistence.jpa</artifactId>
-            <version>2.6.4</version>
-        </dependency>
-
-        <dependency>
-            <groupId>junit</groupId>
-            <artifactId>junit</artifactId>
-            <version>4.12</version>
-            <scope>test</scope>
-        </dependency>
-
-        <dependency>
-            <!--
-                It's needed for Validation.buildDefaultValidatorFactory() - see CustomerIT
-            -->
-            <groupId>org.glassfish</groupId>
-            <artifactId>javax.el</artifactId>
-            <version>3.0.1-b08</version>
-        </dependency>
-
-        <dependency>
-
-            <!-- This dependency contains everything needed (including Derby, JPA, EJB) -->
-            <groupId>fish.payara.extras</groupId>
-            <artifactId>payara-embedded-all</artifactId>
-            <version>4.1.152.1</version>
-            <scope>compile</scope>
-        </dependency>
-    </dependencies>
-
-    <build>
-        <plugins>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-compiler-plugin</artifactId>
-                <version>2.5.1</version>
-                <configuration>
-                    <source>1.8</source>
-                    <target>1.8</target>
-                </configuration>
-            </plugin>
-            <plugin>
-                <groupId>org.codehaus.mojo</groupId>
-                <artifactId>exec-maven-plugin</artifactId>
-                <version>1.2.1</version>
-                <executions>
-                    <execution>
-                        <goals>
-                            <goal>java</goal>
-                        </goals>
-                    </execution>
-                </executions>
-                <configuration>
-                    <mainClass>com.yolkin.bookservice.Main</mainClass>
-                </configuration>
-            </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-failsafe-plugin</artifactId>
-                <version>2.19</version>
-                <executions>
-                    <execution>
-                        <id>integration-test</id>
-                        <goals>
-                            <goal>integration-test</goal>
-                            <goal>verify</goal>
-                        </goals>
-                    </execution>
-                </executions>
-            </plugin>
-        </plugins>
-
-        <pluginManagement>
-            <plugins>
-
-                <plugin>
-                    <groupId>org.apache.maven.plugins</groupId>
-                    <artifactId>maven-jar-plugin</artifactId>
-                    <version>2.4</version>
-                </plugin>
-
-                <plugin>
-                    <groupId>org.apache.maven.plugins</groupId>
-                    <artifactId>maven-war-plugin</artifactId>
-                    <version>2.4</version>
-                    <configuration>
-                        <failOnMissingWebXml>false</failOnMissingWebXml>
-                    </configuration>
-                </plugin>
-            </plugins>
-        </pluginManagement>
-    </build>
 </project>

@@ -3,11 +3,11 @@
  */
 package com.yolkin.bookservice;
 
-import static org.junit.Assert.assertEquals;
-
 import org.junit.AfterClass;
+import org.junit.Assert;
 import org.junit.BeforeClass;
 import org.junit.Test;
+
 import javax.validation.ConstraintViolation;
 import javax.validation.Validation;
 import javax.validation.Validator;
@@ -53,7 +53,7 @@ public class Constraint_CustomerIT {
         );
 
         Set<ConstraintViolation<Customer>> violations = validator.validate(customer);
-        assertEquals(violations.size(), 0);
+        Assert.assertEquals(violations.size(), 0);
     }
 
     @Test
@@ -74,7 +74,7 @@ public class Constraint_CustomerIT {
         //тогда необходимо создать файль resources/ValidationMessages_ru.properties
         //Зачитка бандла осуществляется с помощью ResourceBundle.getBundle()
         Set<ConstraintViolation<Customer>> violations = validator.validate(customer);
-        assertEquals(violations.size(), 2);
+        Assert.assertEquals(violations.size(), 2);
     }
 
 }

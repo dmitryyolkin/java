@@ -3,10 +3,9 @@
  */
 package com.yolkin.bookservice;
 
-import static org.junit.Assert.assertTrue;
-
 import org.jboss.weld.environment.se.Weld;
 import org.jboss.weld.environment.se.WeldContainer;
+import org.junit.Assert;
 import org.junit.Test;
 
 /**
@@ -26,7 +25,7 @@ public class Qualifier_BookServiceIT {
         BookService bookService = container.instance().select(BookService.class).get();
 
         Book book = bookService.createBook("test", 1.f, "test desc");
-        assertTrue(book.getNumber().startsWith("MOCK"));
+        Assert.assertTrue(book.getNumber().startsWith("MOCK"));
 
         container.shutdown();
     }
