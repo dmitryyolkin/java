@@ -38,6 +38,15 @@ public class Book implements Serializable{
     public Book() {
     }
 
+    public Book(String title, Float price, String description, String isbn, Integer nbOfPage, Boolean illustrations) {
+        this.title = title;
+        this.price = price;
+        this.description = description;
+        this.isbn = isbn;
+        this.nbOfPage = nbOfPage;
+        this.illustrations = illustrations;
+    }
+
     public Long getId() {
         return id;
     }
