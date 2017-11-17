@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence xmlns="http://xmlns.jcp.org/xml/ns/persistence"
+             xmlns:xsi=" http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd"
+             version="2.1">
+
+    <!--
+        transaction-type:
+            RESOURCE_LOCAL -transactions are managed by Application manually
+            JTA - managed by container
+    -->
+    <persistence-unit name="bookService" transaction-type="JTA">
+        <!--
+           Data source that can be referred from code
+           specifying its name only (without JDBC properties like URL, jdbc driver and so on)
+        -->
+        <jta-data-source>java:global/jdbc/bookServiceDS</jta-data-source>
+        <properties>
+
+            <property name="javax.persistence.schema-generation.database.action" value="drop-and-create"/>
+            <!--<property name="javax.persistence.schema-generation.scripts.action" value="drop-and-create"/>-->
+
+            <property name="eclipselink.target-database" value="DERBY"/>
+            <property name="eclipselink.ddl-generation" value="drop-and-create-tables"/>
+            <property name="eclipselink.logging.level" value="INFO"/>
+        </properties>
+    </persistence-unit>
+</persistence>
