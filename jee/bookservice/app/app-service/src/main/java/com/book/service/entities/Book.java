@@ -13,7 +13,10 @@ import java.io.Serializable;
  * @author dmitry.yolkin (dmitry.yolkin@maxifier.com) (10.10.17)
  */
 @Entity
-@NamedQuery(name = Book.FIND_ALL, query = "select b from Book b")
+@NamedQuery(name = Book.FIND_ALL,
+        query =
+                "select b from Book b Order by b.title Desc"
+)
 public class Book implements Serializable{
     public static final String FIND_ALL = "Book.findAllBooks";
 
@@ -23,6 +26,7 @@ public class Book implements Serializable{
     private Long id;
 
     @NotNull
+    @Size(min = 4, max = 50)
     @Column(nullable = false)
     private String title;
     private Float price;

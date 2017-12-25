@@ -3,12 +3,14 @@ package com.book.service.entities;
 import javax.ejb.LocalBean;
 import javax.ejb.Stateless;
 import javax.inject.Inject;
+import javax.inject.Named;
 import javax.persistence.EntityManager;
 import java.util.List;
 
 /**
  * @author dmitry.yolkin (dmitry.yolkin@maxifier.com) (10.10.17)
  */
+@Named
 @Stateless
 @LocalBean
 public class BookEjb implements BookEjbRemote {
@@ -18,6 +20,11 @@ public class BookEjb implements BookEjbRemote {
      */
     @Inject
     private EntityManager entityManager;
+
+    @Override
+    public Book findById(Long id) {
+        return entityManager.find(Book.class, id);
+    }
 
     @Override
     public List<Book> findBooks() {

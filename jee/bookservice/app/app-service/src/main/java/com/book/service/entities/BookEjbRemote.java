@@ -9,6 +9,8 @@ import java.util.List;
  */
 @Remote
 public interface BookEjbRemote {
+    Book findById(Long id);
+
     List<Book> findBooks();
 
     @NotNull
