@@ -1,4 +1,4 @@
-package com.book.jms;
+package com.book.jms.classic;
 
 import javax.jms.Connection;
 import javax.jms.ConnectionFactory;
