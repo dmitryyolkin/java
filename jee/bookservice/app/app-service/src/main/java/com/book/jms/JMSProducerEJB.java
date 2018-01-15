@@ -5,7 +5,6 @@ import javax.ejb.Stateless;
 import javax.jms.ConnectionFactory;
 import javax.jms.Destination;
 import javax.jms.JMSContext;
-import javax.jms.Queue;
 import java.time.LocalDateTime;
 
 /**
