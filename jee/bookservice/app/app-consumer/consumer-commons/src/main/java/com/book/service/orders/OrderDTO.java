@@ -53,4 +53,14 @@ public class OrderDTO implements Serializable{
     public void setTotalAmount(Float totalAmount) {
         this.totalAmount = totalAmount;
     }
+
+    @Override
+    public String toString() {
+        return "OrderDTO{" +
+                "orderId=" + orderId +
+                ", creationDate=" + creationDate +
+                ", customerName='" + customerName + '\'' +
+                ", totalAmount=" + totalAmount +
+                '}';
+    }
 }
