@@ -1,4 +1,4 @@
-package com.book.jms;
+package com.yolkin.bookservice.jms;
 
 import javax.jms.Connection;
 import javax.jms.ConnectionFactory;
