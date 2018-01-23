@@ -52,6 +52,9 @@
             <!-- This dependency contains everything needed (including Derby, JPA, EJB) -->
             <groupId>fish.payara.extras</groupId>
             <artifactId>payara-embedded-all</artifactId>
+
+            <!-- use it from jar (not under application server) -->
+            <scope>compile</scope>
         </dependency>
     </dependencies>
 

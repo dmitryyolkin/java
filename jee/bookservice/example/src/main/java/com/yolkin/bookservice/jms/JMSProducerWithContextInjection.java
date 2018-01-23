@@ -1,4 +1,4 @@
-package com.book.jms;
+package com.yolkin.bookservice.jms;
 
 import javax.annotation.Resource;
 import javax.inject.Inject;
