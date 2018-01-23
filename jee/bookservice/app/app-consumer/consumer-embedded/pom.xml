@@ -67,6 +67,10 @@
                             <goal>single</goal>
                         </goals>
                         <configuration>
+                            <!--
+                                Specify required name
+                                https://stackoverflow.com/questions/20697144/can-not-set-the-final-jar-name-with-maven-assembly-plugin
+                            -->
                             <finalName>consumer-embedded</finalName>
                             <appendAssemblyId>false</appendAssemblyId>
                             <archive>
