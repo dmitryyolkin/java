@@ -21,11 +21,11 @@ import javax.jms.MessageListener;
 } )
 public class ExpensiveOrderMDB implements MessageListener {
     public void onMessage(Message message) {
-        try {
-            OrderDTO order = message.getBody(OrderDTO.class);
-            System.out.println("Большой заказ получен: " + order.toString());
-        } catch (JMSException e) {
-            e.printStackTrace();
-        }
+//        try {
+////            OrderDTO order = message.getBody(OrderDTO.class);
+////            System.out.println("Большой заказ получен: " + order.toString());
+//        } catch (JMSException e) {
+//            e.printStackTrace();
+//        }
     }
 }
