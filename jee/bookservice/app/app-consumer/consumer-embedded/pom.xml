@@ -45,6 +45,12 @@
                     <target>1.8</target>
                 </configuration>
             </plugin>
+
+            <!--
+                todo read and choose more suitable option
+                http://www.baeldung.com/executable-jar-with-maven
+            -->
+
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-jar-plugin</artifactId>
