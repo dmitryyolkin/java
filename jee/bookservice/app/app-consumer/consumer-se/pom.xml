@@ -12,6 +12,13 @@
     <artifactId>consumer-se</artifactId>
 
     <dependencies>
+
+        <dependency>
+            <groupId>com.yolkin</groupId>
+            <artifactId>consumer-commons</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+
         <dependency>
             <groupId>fish.payara.extras</groupId>
             <artifactId>payara-embedded-all</artifactId>

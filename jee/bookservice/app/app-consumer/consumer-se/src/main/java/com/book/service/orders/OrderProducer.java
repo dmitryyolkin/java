@@ -15,7 +15,7 @@ public class OrderProducer {
     public static void main(String[] args) throws NamingException {
 
         // Создает объект orderDto с параметром totalАmount
-        Float totalAmount = Float.valueOf(args[0]);
+        Float totalAmount = Float.valueOf(args.length > 0 ? args[0] : "1000");
         OrderDTO order = new OrderDTO(1234l, new Date(), "Бетти Мореу", totalAmount);
 
         // Получает контекст JNDI
