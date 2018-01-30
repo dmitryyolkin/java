@@ -10,6 +10,23 @@
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>soap-consumer</artifactId>
+    <packaging>jar</packaging>
+
+    <dependencies>
+
+        <dependency>
+            <groupId>com.yolkin</groupId>
+            <artifactId>soap-commons</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>fish.payara.extras</groupId>
+            <artifactId>payara-embedded-all</artifactId>
+            <scope>compile</scope>
+        </dependency>
+
+    </dependencies>
 
 
 </project>
