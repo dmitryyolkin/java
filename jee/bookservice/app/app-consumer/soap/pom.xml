@@ -13,8 +13,6 @@
     <packaging>pom</packaging>
     <modules>
         <module>soap-service-embedded</module>
-        <module>soap-consumer</module>
-        <module>soap-commons</module>
     </modules>
 
 
