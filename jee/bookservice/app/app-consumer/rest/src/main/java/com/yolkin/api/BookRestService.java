@@ -46,7 +46,7 @@ public class BookRestService {
         URI uri = uriInfo.getAbsolutePathBuilder().path(String.valueOf(book.getId())).build();
 
         //Respond code 201 with link to a book created recently
-        //e.g. URI can be equal smth: http://localhost:8080/chapter15-service-1.0/rs/book/601
+        //e.g. URI can be equal smth: http://localhost:8080/rest/rs/book/601
         return Response.created(uri).build();
     }
 
