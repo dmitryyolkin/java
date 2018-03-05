@@ -13,6 +13,7 @@
     <modules>
         <module>jms</module>
         <module>soap</module>
+        <module>rest</module>
     </modules>
 
     <artifactId>app-consumer</artifactId>
