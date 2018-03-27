@@ -1,3 +1,4 @@
+import com.rabbitmq.client.AMQP;
 import com.rabbitmq.client.Channel;
 import com.rabbitmq.client.Connection;
 import com.rabbitmq.client.ConnectionFactory;
@@ -10,7 +11,9 @@ import java.util.concurrent.TimeoutException;
  * It's test class to check sending messages to rabbitmq
  */
 public class Producer {
+    public static final String EXCHANGE_NAME = "test_exchange";
     public final static String QUEUE_NAME = "hello";
+    public final static String HELLO_BINDING_KEY = "hello.test";
 
     public static void main(String[] args) throws IOException, TimeoutException {
         ConnectionFactory connectionFactory = new ConnectionFactory();
@@ -21,11 +24,19 @@ public class Producer {
         Connection connection = connectionFactory.newConnection();
         Channel channel = connection.createChannel();
 
-        channel.queueDeclare(QUEUE_NAME, false, false, false, null);
+        //declare Durable exchange and queue
+        // bind exchange with queue
+        channel.exchangeDeclare(EXCHANGE_NAME, "topic");
+
         for (int i = 0; i < 1000; i++) {
             //send a message
             String message = String.format("message_%d", i);
-            channel.basicPublish("", QUEUE_NAME, null, message.getBytes());
+            channel.basicPublish("logs", HELLO_BINDING_KEY,
+                    new AMQP.BasicProperties.Builder()
+                            .deliveryMode(2)
+                            .build(),
+                    message.getBytes()
+            );
             System.out.println(" [x] Sent '" + message + "'");
         }
 
