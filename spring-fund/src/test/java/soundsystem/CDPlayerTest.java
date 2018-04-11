@@ -1,5 +1,6 @@
 package soundsystem;
 
+import config.CDPlayerConfig;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
