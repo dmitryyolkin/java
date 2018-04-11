@@ -18,9 +18,18 @@ public class CDPlayerTest {
     @Autowired
     private CD cd;
 
+    @Autowired
+    private CDPlayer cdPlayer;
+
     @Test
-    public void testCD() {
+    public void testWiring() {
+        Assert.assertNotNull(cdPlayer);
         Assert.assertNotNull(cd);
+    }
+
+    @Test
+    public void testPlay() {
+        cdPlayer.play();
     }
 
 }
