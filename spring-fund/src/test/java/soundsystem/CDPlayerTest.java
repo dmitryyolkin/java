@@ -1,6 +1,6 @@
 package soundsystem;
 
-import config.CDPlayerConfig;
+import config.CDPlayerComponentScanConfig;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -12,7 +12,8 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
  * @author dmitry.yolkin (dmitry.yolkin@maxifier.com) (10.04.18)
  */
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(classes = CDPlayerConfig.class)
+@ContextConfiguration(classes = CDPlayerComponentScanConfig.class)
+//@ContextConfiguration(classes = CDPlayerWithBeanConfig.class) // -- config with help of @Bean instead of @ComponentScan
 public class CDPlayerTest {
 
     @Autowired

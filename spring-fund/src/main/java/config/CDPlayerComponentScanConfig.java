@@ -11,5 +11,5 @@ import soundsystem.CD;
 @Configuration
 //@ComponentScan(basePackages = {"soundsystem"}) // - specify packages where Spring has to scan Components
 @ComponentScan(basePackageClasses = {CD.class}) // - specify scan packages via Classes located in these packages
-public class CDPlayerConfig {
+public class CDPlayerComponentScanConfig {
 }
