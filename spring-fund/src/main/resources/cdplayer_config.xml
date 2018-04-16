@@ -9,10 +9,18 @@ http://www.springframework.org/schema/util
 http://www.springframework.org/schema/util/spring-util.xsd">
 
     <!-- BlankCD configured with properties -->
-    <bean id="cd"
-          class="soundsystem.BlankCD"
-          p:title="California"
-          p:artist="Blink 182">
-    </bean>
+    <beans profile="prod">
+        <bean id="cd"
+              class="soundsystem.BlankCD"
+              p:title="Emptry"
+              p:artist="None">
+        </bean>
+    </beans>
+
+    <beans profile="dev">
+        <bean id="cd"
+              class="soundsystem.RockCD">
+        </bean>
+    </beans>
 
 </beans>

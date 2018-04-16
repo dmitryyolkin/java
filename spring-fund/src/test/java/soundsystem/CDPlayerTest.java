@@ -6,6 +6,7 @@ import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
@@ -16,6 +17,10 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 //@ContextConfiguration(classes = CDPlayerComponentScanConfig.class) - component scan
 //@ContextConfiguration(classes = CDPlayerWithBeanConfig.class) // -- config with help of @Bean instead of @ComponentScan
 @ContextConfiguration(classes = SoundSystemConfig.class) // -- autowiring from xml and JavaConf
+
+// Active profile can be specified with @ActiveProfiles annotation or through web.xml condig
+// see p. 71 - Spring in Action
+@ActiveProfiles("prod")
 public class CDPlayerTest {
 
     @Autowired
