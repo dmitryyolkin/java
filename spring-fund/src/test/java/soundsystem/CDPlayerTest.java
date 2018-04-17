@@ -29,10 +29,17 @@ public class CDPlayerTest {
     @Autowired
     private CDPlayer cdPlayer;
 
+    @Autowired(required = false)
+    private USBPlayer usbPlayer;
+
     @Test
     public void testWiring() {
         Assert.assertNotNull(cdPlayer);
         Assert.assertNotNull(cd);
+
+        // if we need to have usePlayer bean initialized - please set withUsbSupport = true
+        // in UsbSupportedCondition
+        Assert.assertNull(usbPlayer);
     }
 
     @Test
