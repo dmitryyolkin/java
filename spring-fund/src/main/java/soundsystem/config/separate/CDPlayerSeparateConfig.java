@@ -1,4 +1,4 @@
-package config.separate;
+package soundsystem.config.separate;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Conditional;
