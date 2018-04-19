@@ -7,7 +7,7 @@ import org.springframework.stereotype.Component;
  * @author dmitry.yolkin (dmitry.yolkin@maxifier.com) (13.04.18)
  */
 @Component
-// @Profile("prod") - - Profile can  be specified as annotation or in spring config
+// @Profile("prod") - - Profile can  be specified as annotation or in spring soundsystem.config
 public class BlankCD implements CD{
     private String title;
     private String artist;

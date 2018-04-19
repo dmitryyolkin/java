@@ -1,7 +1,6 @@
 package soundsystem;
 
-import config.CDPlayerComponentScanConfig;
-import config.separate.SoundSystemConfig;
+import soundsystem.config.separate.SoundSystemConfig;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -15,7 +14,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
  */
 @RunWith(SpringJUnit4ClassRunner.class)
 //@ContextConfiguration(classes = CDPlayerComponentScanConfig.class) - component scan
-//@ContextConfiguration(classes = CDPlayerWithBeanConfig.class) // -- config with help of @Bean instead of @ComponentScan
+//@ContextConfiguration(classes = CDPlayerWithBeanConfig.class) // -- soundsystem.config with help of @Bean instead of @ComponentScan
 @ContextConfiguration(classes = SoundSystemConfig.class) // -- autowiring from xml and JavaConf
 
 // Active profile can be specified with @ActiveProfiles annotation or through web.xml condig

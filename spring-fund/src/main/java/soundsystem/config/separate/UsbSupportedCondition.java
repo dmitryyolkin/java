@@ -1,4 +1,4 @@
-package config.separate;
+package soundsystem.config.separate;
 
 import org.springframework.context.annotation.Condition;
 import org.springframework.context.annotation.ConditionContext;
