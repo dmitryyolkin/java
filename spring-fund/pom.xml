@@ -26,6 +26,14 @@
             <version>${spring.vestion}</version>
         </dependency>
 
+        <!-- https://mvnrepository.com/artifact/org.aspectj/aspectjtools -->
+        <!-- AspectJ below 1.7.0 doesn't work with Java 7 or higher -->
+        <dependency>
+            <groupId>org.aspectj</groupId>
+            <artifactId>aspectjtools</artifactId>
+            <version>1.7.0</version>
+        </dependency>
+
 
         <!-- https://mvnrepository.com/artifact/org.springframework/spring-test -->
         <dependency>
