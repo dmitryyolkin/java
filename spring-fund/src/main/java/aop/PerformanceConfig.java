@@ -17,4 +17,10 @@ public class PerformanceConfig {
     public Audience audience() {
         return new Audience();
     }
+
+    @Bean
+    public AudienceWithAround audienceWithAround() {
+        return new AudienceWithAround();
+    }
+
 }
