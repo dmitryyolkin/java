@@ -14,4 +14,10 @@ public class Concert implements Performance {
         }
         System.out.println("Concert was finished");
     }
+
+    public void perform(int sceneNumber) {
+        System.out.println(String.format("Scene number %d was started", sceneNumber));
+        //some work
+        System.out.println(String.format("Scene number %d was finished", sceneNumber));
+    }
 }

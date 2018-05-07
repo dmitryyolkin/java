@@ -23,4 +23,9 @@ public class PerformanceConfig {
         return new AudienceWithAround();
     }
 
+    @Bean
+    public SceneCounterAspect sceneCounter() {
+        return new SceneCounterAspect();
+    }
+
 }
