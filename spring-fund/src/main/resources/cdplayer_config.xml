@@ -8,10 +8,10 @@ http://www.springframework.org/schema/beans/spring-beans.xsd
 http://www.springframework.org/schema/util
 http://www.springframework.org/schema/util/spring-util.xsd">
 
-    <!-- BlankCD configured with properties -->
+    <!-- BlankCD configured with core.properties -->
     <beans profile="prod">
         <bean id="cd"
-              class="soundsystem.BlankCD"
+              class="core.soundsystem.BlankCD"
               p:title="Emptry"
               p:artist="None">
         </bean>
@@ -19,7 +19,7 @@ http://www.springframework.org/schema/util/spring-util.xsd">
 
     <beans profile="dev">
         <bean id="cd"
-              class="soundsystem.RockCD">
+              class="core.soundsystem.RockCD">
         </bean>
     </beans>
 
