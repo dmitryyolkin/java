@@ -1,7 +1,6 @@
 package web.spittr.web;
 
 import static org.hamcrest.CoreMatchers.hasItems;
-import static org.mockito.ArgumentMatchers.anyInt;
 import static org.mockito.ArgumentMatchers.anyLong;
 import static org.mockito.ArgumentMatchers.eq;
 import static org.mockito.Mockito.mock;
@@ -59,6 +58,28 @@ public class SpittleControllerTest {
                         hasItems(spittles50.toArray(new Spittle[]{}))
                 ));
 
+    }
+
+    @Test
+    public void testFindSpittle() throws Exception {
+        Spittle spittle = createSpittles(1).get(0);
+
+        SpittleRepository spittleRepository = mock(SpittleRepository.class);
+        when(spittleRepository.findOne(anyLong())).thenReturn(spittle);
+
+        SpittleController spittleController = new SpittleController(spittleRepository);
+        MockMvc mockMvc = MockMvcBuilders
+                .standaloneSetup(spittleController)
+                .build();
+
+        mockMvc
+                .perform(MockMvcRequestBuilders.get("/spittles/123"))
+                .andExpect(MockMvcResultMatchers.view().name("spittle"))
+                .andExpect(MockMvcResultMatchers.model().attributeExists("spittle"))
+                .andExpect(MockMvcResultMatchers.model().attribute(
+                        "spittle",
+                        spittle
+                ));
     }
 
     private List<Spittle> createSpittles(int count) {
