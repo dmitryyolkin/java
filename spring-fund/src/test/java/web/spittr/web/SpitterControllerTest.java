@@ -17,11 +17,10 @@ import web.spittr.web.dto.Spitter;
  * @author dmitry.yolkin (dmitry.yolkin@maxifier.com) (22.05.18)
  */
 public class SpitterControllerTest {
+
     @Test
     public void testRegister() throws Exception {
-        SpitterController spittleController = new SpitterController(
-                mock(SpittleRepository.class)
-        );
+        SpitterController spittleController = new SpitterController(mock(SpittleRepository.class));
 
         MockMvc mockMvc = MockMvcBuilders
                 .standaloneSetup(spittleController)
@@ -57,5 +56,27 @@ public class SpitterControllerTest {
         verify(spittleRepository, atLeastOnce()).save(eq(unsaved));
 
     }
+
+    @Test
+    public void testValidation() throws Exception {
+        SpitterController spitterController = new SpitterController(mock(SpittleRepository.class));
+        MockMvc mockMvc = MockMvcBuilders
+                .standaloneSetup(spitterController)
+                .build();
+
+        //to make this test case possible we have to add a few dependencies
+        //please see pom.xml
+        // 1. hibernate-validator - to be able to use @Valid
+        // 2. javax.el-api - to pass some params in requests like 'password' below
+        // 3. el-impl - to avoid ClassNotFoundException:com.sun.el.ExpressionFactoryImpl
+
+        mockMvc
+                .perform(MockMvcRequestBuilders
+                                .post("/spitter/register")
+                                //too long password
+                                .param("password", "12345678910111213141516")
+                ).andExpect(MockMvcResultMatchers.view().name("registerForm"));
+    }
+
 
 }
