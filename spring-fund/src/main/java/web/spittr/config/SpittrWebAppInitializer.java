@@ -2,6 +2,9 @@ package web.spittr.config;
 
 import org.springframework.lang.Nullable;
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
+import web.spittr.web.SpittlesFilter;
+
+import javax.servlet.Filter;
 
 /**
  * This way of context initialization (extending from AbstractAnnotationConfigDispatcherServletInitializer)
@@ -31,5 +34,11 @@ public class SpittrWebAppInitializer extends AbstractAnnotationConfigDispatcherS
     protected String[] getServletMappings() {
         //it specifies that this DispatcherServlet will be used as a default servlet in app
         return new String[]{"/"};
+    }
+
+    @Nullable
+    @Override
+    protected Filter[] getServletFilters() {
+        return new Filter[]{new SpittlesFilter()};
     }
 }
