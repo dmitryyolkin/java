@@ -5,6 +5,8 @@ import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatche
 import web.spittr.web.SpittlesFilter;
 
 import javax.servlet.Filter;
+import javax.servlet.MultipartConfigElement;
+import javax.servlet.ServletRegistration;
 
 /**
  * This way of context initialization (extending from AbstractAnnotationConfigDispatcherServletInitializer)
@@ -40,5 +42,18 @@ public class SpittrWebAppInitializer extends AbstractAnnotationConfigDispatcherS
     @Override
     protected Filter[] getServletFilters() {
         return new Filter[]{new SpittlesFilter()};
+    }
+
+    @Override
+    protected void customizeRegistration(ServletRegistration.Dynamic registration) {
+        //set temp dir for multipart resolver that can be used for uploading files
+        registration.setMultipartConfig(
+                new MultipartConfigElement(
+                        "/tmp/spittr/uploads",
+                        2097152, // max file part size = 2 MB
+                        4194304, // max size of all parts shouldn't exceed 4 MB
+                        0 // all parts should be written on disk in tmp dir
+                )
+        );
     }
 }
