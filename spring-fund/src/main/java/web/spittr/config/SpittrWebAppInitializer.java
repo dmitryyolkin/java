@@ -12,6 +12,9 @@ import javax.servlet.ServletRegistration;
  * This way of context initialization (extending from AbstractAnnotationConfigDispatcherServletInitializer)
  * is a alternative way of traditional initialization with WEB-INF/web.xml
  *
+ * You don't need to register SpittrWebAppInitializer somewhere - it will be searched automatically
+ * by Spring
+ *
  * @author dmitry.yolkin (dmitry.yolkin@maxifier.com) (11.05.18)
  */
 public class SpittrWebAppInitializer extends AbstractAnnotationConfigDispatcherServletInitializer {

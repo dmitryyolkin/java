@@ -20,6 +20,10 @@ public class SpittlesFilter implements Filter {
     @Override
     public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
         System.out.println("SpittlesFilter.doFilter: " + request);
+
+        // if you want to invoke your Controller that chain.doFilter MUST be invoked
+        // it's similar with middleware functions next() in Node.js
+        chain.doFilter(request, response);
     }
 
     @Override
