@@ -15,5 +15,6 @@ public interface SpittleRepository {
     Spittle findOne(long id);
 
     Spitter save(Spitter spitter);
+    Spittle save(Spittle spitter);
     Spitter findByUsername(String username);
 }

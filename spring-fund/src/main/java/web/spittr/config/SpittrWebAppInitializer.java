@@ -2,10 +2,18 @@ package web.spittr.config;
 
 import org.springframework.lang.Nullable;
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
+import web.spittr.web.SpittlesFilter;
+
+import javax.servlet.Filter;
+import javax.servlet.MultipartConfigElement;
+import javax.servlet.ServletRegistration;
 
 /**
  * This way of context initialization (extending from AbstractAnnotationConfigDispatcherServletInitializer)
  * is a alternative way of traditional initialization with WEB-INF/web.xml
+ *
+ * You don't need to register SpittrWebAppInitializer somewhere - it will be searched automatically
+ * by Spring
  *
  * @author dmitry.yolkin (dmitry.yolkin@maxifier.com) (11.05.18)
  */
@@ -31,5 +39,24 @@ public class SpittrWebAppInitializer extends AbstractAnnotationConfigDispatcherS
     protected String[] getServletMappings() {
         //it specifies that this DispatcherServlet will be used as a default servlet in app
         return new String[]{"/"};
+    }
+
+    @Nullable
+    @Override
+    protected Filter[] getServletFilters() {
+        return new Filter[]{new SpittlesFilter()};
+    }
+
+    @Override
+    protected void customizeRegistration(ServletRegistration.Dynamic registration) {
+        //set temp dir for multipart resolver that can be used for uploading files
+        registration.setMultipartConfig(
+                new MultipartConfigElement(
+                        "/tmp/spittr/uploads",
+                        2097152, // max file part size = 2 MB
+                        4194304, // max size of all parts shouldn't exceed 4 MB
+                        0 // all parts should be written on disk in tmp dir
+                )
+        );
     }
 }

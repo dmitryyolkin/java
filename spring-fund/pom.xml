@@ -77,6 +77,29 @@
             <scope>provided</scope>
         </dependency>
 
+        <!-- Embedded Tomcat -->
+        <dependency>
+            <groupId>org.apache.tomcat.embed</groupId>
+            <artifactId>tomcat-embed-jasper</artifactId>
+            <version>8.5.15</version>
+        </dependency>
+
+        <dependency>
+            <!-- JSTL for http://java.sun.com/jsp/jstl/core used in jsp -->
+            <groupId>javax.servlet</groupId>
+            <artifactId>jstl</artifactId>
+            <version>1.2</version>
+        </dependency>
+
+        <!-- It's needed to avoid of Then you met ClassNotFoundException:com.sun.el.ExpressionFactoryImpl  -->
+        <dependency>
+            <groupId>org.glassfish.web</groupId>
+            <artifactId>el-impl</artifactId>
+            <version>2.2</version>
+        </dependency>
+
+
+        <!-- =============== TEST ========================  -->
         <!-- https://mvnrepository.com/artifact/junit/junit -->
         <dependency>
             <groupId>junit</groupId>
@@ -97,14 +120,6 @@
             <groupId>org.mockito</groupId>
             <artifactId>mockito-core</artifactId>
             <version>2.7.17</version>
-            <scope>test</scope>
-        </dependency>
-
-        <!-- It's needed to avoid of Then you met ClassNotFoundException:com.sun.el.ExpressionFactoryImpl  -->
-        <dependency>
-            <groupId>org.glassfish.web</groupId>
-            <artifactId>el-impl</artifactId>
-            <version>2.2</version>
             <scope>test</scope>
         </dependency>
 
