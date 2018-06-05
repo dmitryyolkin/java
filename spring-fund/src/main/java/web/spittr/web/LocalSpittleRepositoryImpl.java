@@ -23,7 +23,7 @@ public class LocalSpittleRepositoryImpl implements SpittleRepository {
                 .stream()
                 .filter(s -> {
                     Long sId = s.getId();
-                    return sId != null && sId <= max;
+                    return sId == null || sId <= max;
                 })
                 .limit(count)
                 .collect(Collectors.toList());
