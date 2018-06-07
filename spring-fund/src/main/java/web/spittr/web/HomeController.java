@@ -14,7 +14,7 @@ public class HomeController {
     @RequestMapping(method = RequestMethod.GET)
     public String home(){
         //return View with name 'home' - according to ViewResolver specified at ViewResolver
-        //this view will be searched in WEB-INF/views
+        //this view will be searched in webapp.WEB-INF/views
         return "home";
     }
 }
