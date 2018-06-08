@@ -35,7 +35,7 @@ public class SpittleControllerTest {
         SpittleController spittleController = new SpittleController(spittleRepository);
         MockMvc mockMvc = MockMvcBuilders
                 .standaloneSetup(spittleController)
-                .setSingleView(new InternalResourceView("WEB-INF/views/spittles.jsp"))
+                .setSingleView(new InternalResourceView("src/main/webapp/WEB-INF/views/spittles.jsp"))
                 .build();
 
         // check spittles without request - params specified

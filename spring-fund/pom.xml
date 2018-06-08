@@ -22,6 +22,7 @@
 
     <properties>
         <spring.vestion>5.0.5.RELEASE</spring.vestion>
+        <tomcat.vestion>8.5.15</tomcat.vestion>
     </properties>
 
     <dependencies>
@@ -53,14 +54,6 @@
             <version>5.0.1.Final</version>
         </dependency>
 
-        <!-- https://mvnrepository.com/artifact/javax.el/javax.el-api -->
-        <!-- This lib is needed for Validation to avoid javax/el/PropertyNotFoundException  -->
-        <dependency>
-            <groupId>javax.el</groupId>
-            <artifactId>javax.el-api</artifactId>
-            <version>3.0.0</version>
-        </dependency>
-
         <!-- https://mvnrepository.com/artifact/org.springframework/spring-webmvc -->
         <dependency>
             <groupId>org.springframework</groupId>
@@ -81,7 +74,15 @@
         <dependency>
             <groupId>org.apache.tomcat.embed</groupId>
             <artifactId>tomcat-embed-jasper</artifactId>
-            <version>8.5.15</version>
+            <version>${tomcat.vestion}</version>
+        </dependency>
+
+        <!-- This lib is needed for Validation to avoid javax/el/PropertyNotFoundException  -->
+        <!-- No need to register javax.el-api as well - we won't be able to find org.apache.el.ExpressionFactoryImpl -->
+        <dependency>
+            <groupId>org.apache.tomcat.embed</groupId>
+            <artifactId>tomcat-embed-el</artifactId>
+            <version>${tomcat.vestion}</version>
         </dependency>
 
         <dependency>
@@ -90,14 +91,6 @@
             <artifactId>jstl</artifactId>
             <version>1.2</version>
         </dependency>
-
-        <!-- It's needed to avoid of Then you met ClassNotFoundException:com.sun.el.ExpressionFactoryImpl  -->
-        <dependency>
-            <groupId>org.glassfish.web</groupId>
-            <artifactId>el-impl</artifactId>
-            <version>2.2</version>
-        </dependency>
-
 
         <!-- =============== TEST ========================  -->
         <!-- https://mvnrepository.com/artifact/junit/junit -->

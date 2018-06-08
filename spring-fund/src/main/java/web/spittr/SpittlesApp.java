@@ -13,8 +13,10 @@ import java.io.File;
 public class SpittlesApp {
 
     public static void main(String[] args) throws ServletException, LifecycleException {
-        //location with views
-        String webAppDirLocation = "src/main/resources";
+        // location with views
+        // keep in mind WEB-INF should be in a separate dir - webapp in our case
+        // otherwise there can be some conflicts with resolving views
+        String webAppDirLocation = "src/main/webapp";
         Tomcat tomcat = new Tomcat();
 
         //Set Port #
