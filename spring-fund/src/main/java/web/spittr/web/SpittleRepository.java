@@ -4,6 +4,8 @@ import org.springframework.lang.Nullable;
 import web.spittr.web.dto.Spitter;
 import web.spittr.web.dto.Spittle;
 
+import javax.servlet.http.Part;
+import java.io.IOException;
 import java.util.List;
 
 /**
@@ -17,4 +19,5 @@ public interface SpittleRepository {
     Spitter save(Spitter spitter);
     Spittle save(Spittle spitter);
     Spitter findByUsername(String username);
+    void uploadSpitterAvatar(Part avatar) throws IOException;
 }

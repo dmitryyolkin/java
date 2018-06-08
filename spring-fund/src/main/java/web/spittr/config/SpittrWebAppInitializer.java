@@ -7,6 +7,7 @@ import web.spittr.web.SpittlesFilter;
 import javax.servlet.Filter;
 import javax.servlet.MultipartConfigElement;
 import javax.servlet.ServletRegistration;
+import java.io.File;
 
 /**
  * This way of context initialization (extending from AbstractAnnotationConfigDispatcherServletInitializer)
@@ -18,6 +19,9 @@ import javax.servlet.ServletRegistration;
  * @author dmitry.yolkin (dmitry.yolkin@maxifier.com) (11.05.18)
  */
 public class SpittrWebAppInitializer extends AbstractAnnotationConfigDispatcherServletInitializer {
+
+    private static final String TMP_SPITTR_UPLOADS_DIR = "./tmp/spittr/uploads";
+
     @Nullable
     @Override
     protected Class<?>[] getRootConfigClasses() {
@@ -52,7 +56,7 @@ public class SpittrWebAppInitializer extends AbstractAnnotationConfigDispatcherS
         //set temp dir for multipart resolver that can be used for uploading files
         registration.setMultipartConfig(
                 new MultipartConfigElement(
-                        "/tmp/spittr/uploads",
+                        TMP_SPITTR_UPLOADS_DIR,
                         2097152, // max file part size = 2 MB
                         4194304, // max size of all parts shouldn't exceed 4 MB
                         0 // all parts should be written on disk in tmp dir
