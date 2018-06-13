@@ -58,10 +58,6 @@ public class SpitterController {
         }
     }
 
-    @ExceptionHandler(value = DuplicateEntryException.class)
-    private String handleDuplicateException() {
-        return "error/duplicate";
-    }
 
     @RequestMapping(value = "/{username}", method = RequestMethod.GET)
     public String spitter(
