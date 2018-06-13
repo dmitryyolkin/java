@@ -16,7 +16,7 @@ public interface SpittleRepository {
     @Nullable
     Spittle findOne(long id);
 
-    Spitter save(Spitter spitter);
+    Spitter save(Spitter spitter) throws DuplicateEntryException;
     Spittle save(Spittle spitter);
     Spitter findByUsername(String username);
     void uploadSpitterAvatar(Part avatar) throws IOException;

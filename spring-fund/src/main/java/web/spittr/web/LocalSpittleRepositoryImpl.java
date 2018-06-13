@@ -71,7 +71,7 @@ public class LocalSpittleRepositoryImpl implements SpittleRepository {
     }
 
     @Override
-    public Spitter save(Spitter spitter) {
+    public Spitter save(Spitter spitter) throws DuplicateEntryException {
         spitters.add(spitter);
         return spitter;
     }
