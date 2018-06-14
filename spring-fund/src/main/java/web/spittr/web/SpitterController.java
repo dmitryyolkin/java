@@ -51,7 +51,14 @@ public class SpitterController {
 
             //save object in repo
             spittleRepository.save(spitter);
-            return "redirect:/spitter/" + spitter.getUserName();
+
+            // model registration is alternative for String concatination in redirect
+            model.addAttribute("username", spitter.getUserName());
+            model.addAttribute("spitterId", spitter.getId());
+
+            // as long as mapping to spitterId is absent it will be added as query param
+            // smth like /spitter/{username}?spitterId={spitterId}
+            return "redirect:/spitter/{username}";
         } catch (IOException e) {
             model.addAttribute("error", e.getMessage());
             return "registerForm";
