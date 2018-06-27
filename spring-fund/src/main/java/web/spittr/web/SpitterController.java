@@ -37,10 +37,12 @@ public class SpitterController {
 
     @RequestMapping(value = "/register", method = RequestMethod.POST)
     public String processRegister(
-            @RequestPart("profilePicture") Part profilePicture, // byte[] can be used instead of Part
+            @RequestPart(value = "profilePicture", required = false) Part profilePicture, // byte[] can be used instead of Part
             @Valid Spitter spitter,
-            RedirectAttributes model,
-            Errors errors) {
+            Errors errors, // it's important that Errors object was put after ab object validated by Error
+
+            RedirectAttributes model
+    ) {
 
         if (errors.hasErrors()) {
             return "registerForm";
