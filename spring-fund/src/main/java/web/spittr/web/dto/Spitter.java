@@ -48,6 +48,10 @@ public class Spitter {
         this.password = password;
     }
 
+    public Long getId() {
+        return id;
+    }
+
     public String getUserName() {
         return userName;
     }

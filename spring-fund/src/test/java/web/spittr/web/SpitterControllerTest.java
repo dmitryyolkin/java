@@ -5,8 +5,15 @@ import static org.mockito.Mockito.atLeastOnce;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.springframework.mock.web.MockMultipartFile;
+import org.springframework.mock.web.MockPart;
+import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+import org.springframework.test.context.web.WebAppConfiguration;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
@@ -72,10 +79,19 @@ public class SpitterControllerTest {
 
         mockMvc
                 .perform(MockMvcRequestBuilders
-                                .post("/spitter/register")
-                                //too long password
-                                .param("password", "12345678910111213141516")
-                ).andExpect(MockMvcResultMatchers.view().name("registerForm"));
+                        // multipart is requested to test Multipart requests
+                        // e.g. where we upload some pictures
+                        .multipart("/spitter/register")
+                        //too long password
+                        .part(new MockPart(
+                                "profilePicture",
+                                "test_picture.jpg",
+                                "test_picture.jpg".getBytes()
+                        ))
+                        .param("password", "12345678910111213141516")
+                )
+                .andExpect(status().is(200))
+                .andExpect(MockMvcResultMatchers.view().name("registerForm"));
     }
 
 
