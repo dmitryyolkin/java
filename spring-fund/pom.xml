@@ -92,6 +92,21 @@
             <version>1.2</version>
         </dependency>
 
+        <!-- Security -->
+        <!-- https://mvnrepository.com/artifact/org.springframework.security/spring-security-core -->
+        <dependency>
+            <groupId>org.springframework.security</groupId>
+            <artifactId>spring-security-core</artifactId>
+            <version>${spring.vestion}</version>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/org.springframework.security/spring-security-config -->
+        <dependency>
+            <groupId>org.springframework.security</groupId>
+            <artifactId>spring-security-config</artifactId>
+            <version>${spring.vestion}</version>
+        </dependency>
+
         <!-- =============== TEST ========================  -->
         <!-- https://mvnrepository.com/artifact/junit/junit -->
         <dependency>
