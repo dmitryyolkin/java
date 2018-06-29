@@ -4,7 +4,7 @@
     </div>
     <div>
         <span class="spittleTime">
-            <c:out value="${spittle.time}" />
+            <c:out value="${spittle.createdAt}" />
         </span>
     </div>
 </div>

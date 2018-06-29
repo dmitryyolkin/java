@@ -9,18 +9,18 @@ import java.util.Objects;
 public class Spittle {
     private final Long id;
     private final String message;
-    private final Date time;
+    private final Date createdAt;
     private Double latitude;
     private Double longitude;
 
-    public Spittle(String message, Date time) {
-        this(message, time, null, null);
+    public Spittle(String message, Date createdAt) {
+        this(message, createdAt, null, null);
     }
 
-    public Spittle(String message, Date time, Double latitude, Double longitude) {
+    public Spittle(String message, Date createdAt, Double latitude, Double longitude) {
         this.id = null;
         this.message = message;
-        this.time = time;
+        this.createdAt = createdAt;
         this.latitude = latitude;
         this.longitude = longitude;
     }
@@ -33,8 +33,8 @@ public class Spittle {
         return message;
     }
 
-    public Date getTime() {
-        return time;
+    public Date getCreatedAt() {
+        return createdAt;
     }
 
     public Double getLatitude() {
@@ -52,13 +52,13 @@ public class Spittle {
         Spittle spittle = (Spittle) o;
         return Objects.equals(id, spittle.id) &&
                 Objects.equals(message, spittle.message) &&
-                Objects.equals(time, spittle.time) &&
+                Objects.equals(createdAt, spittle.createdAt) &&
                 Objects.equals(latitude, spittle.latitude) &&
                 Objects.equals(longitude, spittle.longitude);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, message, time, latitude, longitude);
+        return Objects.hash(id, message, createdAt, latitude, longitude);
     }
 }
