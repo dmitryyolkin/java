@@ -26,6 +26,11 @@
     </properties>
 
     <dependencies>
+
+        <!-- ====================================================================================== -->
+        <!-- ============================Core====================================================== -->
+        <!-- ====================================================================================== -->
+
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-core</artifactId>
@@ -53,6 +58,11 @@
             <artifactId>hibernate-validator</artifactId>
             <version>5.0.1.Final</version>
         </dependency>
+
+        <!-- ====================================================================================== -->
+        <!-- ============================WEB MVC=================================================== -->
+        <!-- ====================================================================================== -->
+
 
         <!-- https://mvnrepository.com/artifact/org.springframework/spring-webmvc -->
         <dependency>
@@ -91,6 +101,48 @@
             <artifactId>jstl</artifactId>
             <version>1.2</version>
         </dependency>
+
+        <!-- ====================================================================================== -->
+        <!-- ============================Security================================================== -->
+        <!-- ====================================================================================== -->
+
+        <!-- https://mvnrepository.com/artifact/org.springframework.security/spring-security-core -->
+        <dependency>
+            <groupId>org.springframework.security</groupId>
+            <artifactId>spring-security-core</artifactId>
+            <version>${spring.vestion}</version>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/org.springframework.security/spring-security-config -->
+        <dependency>
+            <groupId>org.springframework.security</groupId>
+            <artifactId>spring-security-config</artifactId>
+            <version>${spring.vestion}</version>
+        </dependency>
+
+        <!-- Without the class we will get ClassNotFoundException: org.springframework.security.web.access.WebInvocationPrivilegeEvaluator -->
+        <!-- https://mvnrepository.com/artifact/org.springframework.security/spring-security-web -->
+        <dependency>
+            <groupId>org.springframework.security</groupId>
+            <artifactId>spring-security-web</artifactId>
+            <version>${spring.vestion}</version>
+        </dependency>
+
+
+        <!-- https://mvnrepository.com/artifact/org.springframework/spring-jdbc -->
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-jdbc</artifactId>
+            <version>${spring.vestion}</version>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/com.h2database/h2 -->
+        <dependency>
+            <groupId>com.h2database</groupId>
+            <artifactId>h2</artifactId>
+            <version>1.4.197</version>
+        </dependency>
+
 
         <!-- =============== TEST ========================  -->
         <!-- https://mvnrepository.com/artifact/junit/junit -->
