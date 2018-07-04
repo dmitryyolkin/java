@@ -12,9 +12,8 @@ import javax.sql.DataSource;
  * @author dmitry.yolkin (dmitry.yolkin@maxifier.com) (27.06.18)
  */
 
-// Enable if we want to have users stored in memory
-//@Configuration
-//@EnableWebSecurity
+@Configuration
+@EnableWebSecurity
 public class InMemorySecurityConfig extends WebSecurityConfigurerAdapter{
 
     @Override
