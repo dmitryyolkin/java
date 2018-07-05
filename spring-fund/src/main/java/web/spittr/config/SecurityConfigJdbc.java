@@ -15,7 +15,7 @@ import javax.sql.DataSource;
 // Enable if we want to have users stored in memory
 //@Configuration
 //@EnableWebSecurity
-public class JdbcSecurityConfig extends WebSecurityConfigurerAdapter {
+public class SecurityConfigJdbc extends WebSecurityConfigurerAdapter {
     @Autowired
     private DataSource dataSource;
 
