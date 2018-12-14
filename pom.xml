@@ -9,6 +9,8 @@
         <module>soap</module>
         <module>rest</module>
         <module>rabbitmq</module>
+        <module>spring-demo</module>
+        <module>spring-fund</module>
     </modules>
     <packaging>pom</packaging>
 
