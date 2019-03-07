@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" type="text/css" data-th-href="@{/style.css}"/>
+</head>
+<body>
+    <div class="errorPage">
+        <span class="oops">Oops!</span><br/>
+        <img data-th-src="@{/MissingPage.png}" src=""/>
+        <p>There seems to be a problem with the page you requested
+            Show requested path
+            (<span data-th-text="${path}"></span>).</p>
+        <p data-th-text="${'Details: ' + message}"></p>
+    </div>
+</body>
+</html>
