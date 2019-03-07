@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import java.util.List;
 
 @Controller
-@RequestMapping(value = "/")
+@RequestMapping(value = "/users")
 public class ReadingListController {
     private final ReadingListRepository repository;
 
