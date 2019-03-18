@@ -1,12 +1,14 @@
 package com.yolkin.springbootdemo.security;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Profile;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 
 /**
@@ -24,11 +26,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-        auth
-                .userDetailsService(username ->
-                        readerRepository
-                                .findById(username)
-                                .orElseThrow(() -> new UsernameNotFoundException("User is not found" + username)));
+        auth.userDetailsService(userDetailsService());
     }
 
     @Override
@@ -36,14 +34,21 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         // require Reader access
         http
                 .authorizeRequests()
-                .antMatchers("/users/").access("hasRole('READER')")
-                .antMatchers("/**").permitAll()
-
+                    .antMatchers("/users").access("hasRole('ROLE_READER')")
+                    .antMatchers("/**").permitAll()
                 .and()
+                    .formLogin()
+                        .loginPage("/login")
+                        .failureUrl("/login?error=true");
+    }
 
-                .formLogin()
-                .loginPage("/login")
-                .failureUrl("/login?error=true");
-
+    @Bean
+    @Override
+    // NOTE: this method should be overriden and marked with @Bean
+    // otherwise it doesn't work
+    public UserDetailsService userDetailsService() {
+        return username -> readerRepository
+                .findById(username)
+                .orElseThrow(() -> new UsernameNotFoundException("User '" + username + "' not found."));
     }
 }
