@@ -12,7 +12,7 @@ import java.util.Collections;
 @Entity
 public class Reader implements UserDetails {
     private static final Long serialVersionUID = 1L;
-    public static final String READER = "READER";
+    public static final String ROLE_READER = "ROLE_READER";
 
     @Id
     private String username;
@@ -37,7 +37,7 @@ public class Reader implements UserDetails {
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        return Collections.singleton(new SimpleGrantedAuthority(READER));
+        return Collections.singleton(new SimpleGrantedAuthority(ROLE_READER));
     }
 
     @Override
