@@ -1,6 +1,7 @@
 package com.yolkin.springbootdemo;
 
 import com.yolkin.springbootdemo.entities.Book;
+import com.yolkin.springbootdemo.security.Reader;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -11,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import java.util.List;
 
 @Controller
-@RequestMapping(value = "/users")
+@RequestMapping(value = "/")
 public class ReadingListController {
     private final ReadingListRepository repository;
 
@@ -21,14 +22,15 @@ public class ReadingListController {
     }
 
     // e.g. http://localhost:8080/john.smith
-    @RequestMapping(value = "/{reader}", method = RequestMethod.GET)
+    @RequestMapping(method = RequestMethod.GET)
     public String getBooksByReader(
-            @PathVariable("reader") String reader,
+            Reader reader,
             Model model) {
 
         List<Book> books = repository.findByReader(reader);
         if (books != null) {
             model.addAttribute("books", books);
+            model.addAttribute("reader", reader);
         }
 
         // return name of View that should be shown
@@ -36,9 +38,9 @@ public class ReadingListController {
     }
 
     // e.g. http://localhost:8080/john.smith
-    @RequestMapping(value = "/{reader}", method = RequestMethod.POST)
+    @RequestMapping(method = RequestMethod.POST)
     public String addBoo2ReadingList(
-            @PathVariable("reader") String reader,
+            Reader reader,
             Book book) {
 
         book.setReader(reader);
@@ -46,6 +48,6 @@ public class ReadingListController {
 
         // redirect to reader's page
         // it's handled with another controller -
-        return "redirect:/{reader}";
+        return "redirect:/";
     }
 }
