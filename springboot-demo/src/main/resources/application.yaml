@@ -1,3 +1,15 @@
 spring:
   profiles:
     active: production
+
+# Spring Boot installs a ‘whitelabel’ error page that you see in a browser client
+# if you encounter a server error
+# (machine clients consuming JSON and other media types should see a sensible response with the right error code).
+# https://docs.spring.io/spring-boot/docs/current/reference/html/howto-actuator.html
+error:
+  whitelabel:
+    enabled: false
+
+logging:
+  level:
+    root: INFO
